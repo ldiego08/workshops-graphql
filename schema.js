@@ -9,6 +9,18 @@ const {
 
 const resolvers = require('./resolvers');
 
+const RoleType = new GraphQLObjectType({
+    name: 'Role',
+    fields: {
+        id: {
+            type: new GraphQLNonNull(GraphQLInt)
+        },
+        name: {
+            type: new GraphQLNonNull(GraphQLString)
+        }
+    }
+});
+
 const UserType = new GraphQLObjectType({
     name: 'User',
     fields: {
@@ -23,6 +35,10 @@ const UserType = new GraphQLObjectType({
         },
         lastName: {
             type: new GraphQLNonNull(GraphQLString)
+        },
+        roles: {
+            type: new GraphQLList(RoleType),
+            resolve: resolvers.userRoles
         }
     }
 });
