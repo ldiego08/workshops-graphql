@@ -3,6 +3,7 @@ const { buildSchema } = require("graphql");
 module.exports = buildSchema(`
     type Query {
         users: [User]
+        user(id: Int!): User
     }
 
     type User {

@@ -4,5 +4,8 @@ const userRepository = new UserRepository();
 module.exports = {
     users: () => {
         return userRepository.findAll();
+    },
+    user: (args) => {
+        return userRepository.getOne(args.id);
     }
 }

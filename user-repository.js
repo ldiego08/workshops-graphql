@@ -14,4 +14,12 @@ module.exports = class UserRepository {
     findAll() {
         return users;
     }
+
+    getOne(id) {
+        const matches = users.filter(user => user.id === id);
+
+        if (matches && matches.length > 0) {
+            return matches[0];
+        }
+    }
 }
