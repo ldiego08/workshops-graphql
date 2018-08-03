@@ -5,7 +5,7 @@ module.exports = {
     users: () => {
         return userRepository.findAll();
     },
-    user: (args) => {
+    user: (root, args) => {
         return userRepository.getOne(args.id);
     }
 }
