@@ -62,6 +62,28 @@ const QueryType = new GraphQLObjectType({
     }
 });
 
+const MutationType = new GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+        createUser: {
+            type: UserType,
+            resolve: resolvers.createUser,
+            args: {
+                login: {
+                    type: new GraphQLNonNull(GraphQLString)
+                },
+                firstName: {
+                    type: new GraphQLNonNull(GraphQLString)
+                },
+                lastName: {
+                    type: new GraphQLNonNull(GraphQLString)
+                },
+            }
+        }
+    }
+});
+
 module.exports = new GraphQLSchema({
-    query: QueryType
+    query: QueryType,
+    mutation: MutationType
 });

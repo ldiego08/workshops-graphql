@@ -27,4 +27,16 @@ module.exports = class UserRepository {
             return matches[0];
         }
     }
+
+    create(args) {
+        const id = users[users.length - 1].id + 1;
+        const user = {
+            ...args,
+            id
+        };
+
+        users.push(user);
+
+        return user;
+    }
 }

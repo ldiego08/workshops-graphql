@@ -13,5 +13,8 @@ module.exports = {
     },
     userRoles: (root) => {
         return roleRepository.findByIds(root.rolesIds)
+    },
+    createUser: (root, args) => {
+        return userRepository.create(args);
     }
 }
